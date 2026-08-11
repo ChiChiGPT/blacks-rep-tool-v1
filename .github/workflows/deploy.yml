@@ -19,8 +19,7 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: |
-          curl -s -o /dev/null -w "%{http_code}
-" \
+          curl -s -o /dev/null -w "%{http_code}\n" \
             -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
             https://api.netlify.com/api/v1/user
 
