@@ -1,8 +1,13 @@
 name: Provision Netlify site
+
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
+
 permissions:
   contents: read
+
 jobs:
   provision:
     runs-on: ubuntu-latest
@@ -10,20 +15,26 @@ jobs:
       - name: Credential diagnostic
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        run: |
-          status="$(curl --silent --output /dev/null --write-out '%{http_code}' --header "Authorization: Bearer ${NETLIFY_AUTH_TOKEN}" https://api.netlify.com/api/v1/sites)"
-          printf '%s
-' "$status"
-          test "$status" = "200"
+        run: >-
+          curl --silent --output /dev/null --write-out '%{http_code}
+'
+          --header "Authorization: Bearer $NETLIFY_AUTH_TOKEN"
+          https://api.netlify.com/api/v1/sites
+      - name: Stop unless diagnostic succeeded
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: >-
+          test "$(curl --silent --output /dev/null --write-out '%{http_code}'
+          --header "Authorization: Bearer $NETLIFY_AUTH_TOKEN"
+          https://api.netlify.com/api/v1/sites)" = "200"
       - name: Create site
         id: site
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: |
-          response="$(curl --fail-with-body --silent --show-error --request POST --header "Authorization: Bearer ${NETLIFY_AUTH_TOKEN}" --header 'Content-Type: application/json' --data '{"name":"blacks-rep-tool-v1","account_slug":"craigmcgeown1"}' https://api.netlify.com/api/v1/sites)"
-          site_id="$(printf '%s' "$response" | jq -er '.id')"
-          printf 'site_id=%s
-' "$site_id" >> "$GITHUB_OUTPUT"
+          site_id=$(curl --fail --silent --show-error --request POST --header "Authorization: Bearer $NETLIFY_AUTH_TOKEN" --header "Content-Type: application/json" --data '{"name":"blacks-rep-tool-v1","account_slug":"craigmcgeown1"}' https://api.netlify.com/api/v1/sites | jq -r .id)
+          test -n "$site_id"
+          echo "site_id=$site_id" >> "$GITHUB_OUTPUT"
+          echo "NETLIFY_SITE_ID=$site_id"
       - name: Report site ID
-        run: printf '%s
-' '${{ steps.site.outputs.site_id }}'
+        run: echo "${{ steps.site.outputs.site_id }}"
