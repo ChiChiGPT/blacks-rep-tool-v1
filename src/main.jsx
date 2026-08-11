@@ -6,7 +6,7 @@ const money = value => new Intl.NumberFormat('en-GB', { style: 'currency', curre
 const tierOrder = { hero: 0, core: 1, attach: 2, coverage: 3 }
 const availabilityLabel = { in_stock: 'In Stock', pre_order: 'Pre-Order', out_of_stock: 'Out of Stock' }
 const PRICE_CAPTURE_DATE = '29 July 2026'
-const BUILD_MARKER = 'Build 2026-08-11 · freshness proof'
+const BUILD_MARKER = 'Build 2026-08-11 · quote reload observation'
 
 function ProductImage({ product }) { return product.local_image_path ? <img className="product-image" src={product.local_image_path} alt={product.product_name} /> : <div className="image-empty">Image unavailable</div> }
 function Status({ availability }) { return availability ? <span className={`status ${availability}`}>{availabilityLabel[availability] || availability}</span> : <span className="status unknown">Availability unconfirmed</span> }
