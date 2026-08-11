@@ -5,7 +5,7 @@ import './styles.css'
 const money = value => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(value || 0)
 const tierOrder = { hero: 0, core: 1, attach: 2, coverage: 3 }
 const availabilityLabel = { in_stock: 'In Stock', pre_order: 'Pre-Order', out_of_stock: 'Out of Stock' }
-const PRICE_CAPTURE_DATE = '29 July 2026'
+const PRICE_CAPTURE_DATE = '11 August 2026'
 const QUOTE_STORAGE_KEY = 'blacks-rep-quote-v1'
 const UPDATE_PROTOCOL_VERSION = 3
 // Quote persistence live-update proof revision.
