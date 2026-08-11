@@ -7,7 +7,7 @@ const tierOrder = { hero: 0, core: 1, attach: 2, coverage: 3 }
 const availabilityLabel = { in_stock: 'In Stock', pre_order: 'Pre-Order', out_of_stock: 'Out of Stock' }
 const PRICE_CAPTURE_DATE = '29 July 2026'
 const QUOTE_STORAGE_KEY = 'blacks-rep-quote-v1'
-const UPDATE_PROTOCOL_VERSION = 2
+const UPDATE_PROTOCOL_VERSION = 3
 // Quote persistence live-update proof revision.
 
 function ProductImage({ product }) { return product.local_image_path ? <img className="product-image" src={product.local_image_path} alt={product.product_name} /> : <div className="image-empty">Image unavailable</div> }
