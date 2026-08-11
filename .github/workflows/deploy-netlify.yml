@@ -1,0 +1,31 @@
+name: Deploy Netlify
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Netlify credential
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          status=$(curl --silent --output /dev/null --write-out '%{http_code}' --header "Authorization: Bearer ${NETLIFY_AUTH_TOKEN}" https://api.netlify.com/api/v1/sites)
+          printf '%s
+' "$status"
+          test "$status" = "200"
+      - name: Prepare production bundle
+        run: |
+          cat site.zip.part-00 site.zip.part-01 > site.zip
+          unzip -q site.zip -d dist
+      - name: Deploy production
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: npx --yes netlify-cli@17 deploy --dir=dist --prod --site="$NETLIFY_SITE_ID"
