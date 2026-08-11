@@ -33,9 +33,10 @@ async function networkFirst(request, fallback) {
     }
     return response;
   } catch {
-    const cached = await caches.match(request);
+    const cache = await caches.open(CACHE);
+    const cached = await cache.match(request);
     if (cached) return cached;
-    if (fallback) return caches.match(fallback);
+    if (fallback) return cache.match(fallback);
     throw new Error('Offline and no cached response is available.');
   }
 }
@@ -46,7 +47,7 @@ self.addEventListener('install', event => event.waitUntil(
 
 self.addEventListener('activate', event => event.waitUntil(
   caches.keys()
-    .then(keys => Promise.all(keys.filter(key => key.startsWith('blacks-rep-v1-') && key !== CACHE).map(key => caches.delete(key))))
+    .then(keys => Promise.all(keys.filter(key => key.startsWith('blacks-rep-v1') && key !== CACHE).map(key => caches.delete(key))))
     .then(() => self.clients.claim())
 ));
 
@@ -66,10 +67,14 @@ self.addEventListener('fetch', event => {
     event.respondWith(networkFirst(event.request));
     return;
   }
-  event.respondWith(caches.match(event.request).then(cached => cached || fetch(event.request).then(async response => {
-    if (response.ok) (await caches.open(CACHE)).put(event.request, response.clone());
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE);
+    const cached = await cache.match(event.request);
+    if (cached) return cached;
+    const response = await fetch(event.request);
+    if (response.ok) await cache.put(event.request, response.clone());
     return response;
-  })));
+  })());
 });
 `
 
