@@ -2,18 +2,22 @@
 
 - Record count: 403
 - Every record has the identical 27-field key set.
-- Matched sales-signal records: 228.
-- Intended trained sales set: 56.
-- In-catalogue trained set: 52.
-- Four intended trained sales rows have no exact catalogue match. They are not represented as false 403-record catalogue products.
+- Exact matcher: unambiguous normalized equality with bracketed pack and variant content retained.
+- Matched sales-signal records: 250.
+- Unmatched sales rows: 8.
+- Ambiguous keys rejected: 0.
+- In-catalogue trained set: 58.
+- BUNDLES deliberately has no representative: Blacks June Mystery Box (Limited Edition) remains excluded because it is discontinued, out of stock and June-specific; no substitute was admitted.
 - Source capture date used in quote footer: 29 July 2026.
 
-## Unmatched trained items
+## Count by core tier
 
-- `Saline 0.9% Sodium Chloride 10ml` — sales source row 4; no exact catalogue match.
-- `BD Microfine 30g x 8mm 0.5ml [100 Pack]` — sales source row 10; no exact catalogue match.
-- `BD Microfine 30g x 8mm 0.5ml [10 Pack]` — sales source row 11; no exact catalogue match.
-- `Skin Glow Mask 100ml` — sales source row 220; no exact catalogue match.
+- `hero`: 8
+- `core`: 35
+- `attach`: 8
+- `coverage`: 7
+
+- `null`: 345
 
 ## Nulls per field
 
@@ -28,15 +32,15 @@
 - `full_description`: 0
 - `brand`: 5
 - `brand_source`: 0
-- `revenue_gbp`: 175
-- `units_sold`: 175
-- `order_count`: 175
-- `revenue_rank`: 175
-- `units_rank`: 175
-- `order_rank`: 175
-- `sales_period`: 175
+- `revenue_gbp`: 153
+- `units_sold`: 153
+- `order_count`: 153
+- `revenue_rank`: 153
+- `units_rank`: 153
+- `order_rank`: 153
+- `sales_period`: 153
 - `in_trained_set`: 0
-- `core_tier`: 351
+- `core_tier`: 345
 - `quotable`: 0
 - `talk_track`: 403
 - `key_benefits`: 403
@@ -44,15 +48,3 @@
 - `trade_up_to`: 403
 - `goes_with`: 403
 - `margin_band`: 403
-
-## Count by core tier
-
-- `hero`: 7
-- `core`: 34
-- `attach`: 6
-- `coverage`: 5
-- `null`: 351
-
-## Asset copy
-
-- Local images copied: 403.

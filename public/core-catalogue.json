@@ -117,7 +117,7 @@
     "brand": "Vitaran",
     "brand_source": "product_name",
     "quotable": true,
-    "core_tier": "core"
+    "core_tier": "hero"
   },
   {
     "sku": "lumski4543",
@@ -146,6 +146,21 @@
     "full_description": "LEMONBOTTLE Ampoule Solution For Face and Body\nPackage: 10ml/ 5vials\nIt�s a high-concentration premium LEMONBOTTLE solution that combines Riboflavin (vitamin B2) and excellent ingredients for fat decomposition to increase metabolism of fat cells and accelerate it.",
     "brand": "Lemon Bottle",
     "brand_source": "subcategory",
+    "quotable": true,
+    "core_tier": "core"
+  },
+  {
+    "sku": "bdcon9768",
+    "product_name": "BD Microfine 30g x 8mm 0.5ml [100 Pack]",
+    "category": "CONSUMABLES",
+    "subcategory": "insulin-syringe",
+    "price_ex_vat": 22,
+    "availability": "in_stock",
+    "product_url": "https://blacksaesthetics.com/product-detail/17",
+    "local_image_path": "/images/bdcon9768.jpg",
+    "full_description": "The BD Micro-Fine + Insulin Syringes offers people with diabetes a more comfortable and convinient method of injecting insulin.\nThe BD Micro-Fine + Insulin Syringe comes in three different sizes: 1ml, 0.5ml and 0.3ml syringes.\nIt is important to choose the size of the syringe according to the volume of insulin to be injected. It is easier to accurately measure a small dose with a small volume syringe than with a large capacity syringe.\nThe BD Micro-Fine + 0.5ml syringe is graduated in 1 unit intervals and is ideal for doses between 30-50 units.\nNeedle: 30G, 0.30mm outer diameter, 8mm Length",
+    "brand": "BD",
+    "brand_source": "product_name",
     "quotable": true,
     "core_tier": "core"
   },
@@ -615,6 +630,21 @@
     "core_tier": "core"
   },
   {
+    "sku": "bioski5828",
+    "product_name": "BioRePeel CL3 6ml [5 Pack]",
+    "category": "MESOTHERAPY",
+    "subcategory": "peels",
+    "price_ex_vat": 165,
+    "availability": "pre_order",
+    "product_url": "https://blacksaesthetics.com/product-detail/250",
+    "local_image_path": "/images/bioski5828.jpg",
+    "full_description": "BioRePeel CL3 6ml [5 Pack]\nThe BioRePeel works utilizing biostimulation technology, which encourages the production of collagen and elastin, while also improving cellular turnover. The innovative peel formula helps to exfoliate your top layer of the skin by dissolving the bonds between old, dead, or damaged cells and promoting regeneration.",
+    "brand": "BioRePeel",
+    "brand_source": "product_name",
+    "quotable": true,
+    "core_tier": "core"
+  },
+  {
     "sku": "amimes5738",
     "product_name": "Ami Eyes 2ml",
     "category": "POLYNUCLEOTIDES",
@@ -641,6 +671,36 @@
     "full_description": "Aessoa Deep Lidocaine is a unique dermal filler used to correct moderate to deep wrinkles and to augment the lips. It is ideal for smoothing nasolabial folds, glabella lines, and marionette lines and should be injected into the mid dermis. Aessoa Deep contains a high concentration of hyaluronic acid and has a thicker and more viscous gel providing long-lasting results that look and feels natural.\nThe pack consists of 1 x 1ml prefilled syringe\nComposition of the product:\nHyaluronic acid: 24mg/ml\nLidocaine: 3 mg/ml\nBenefits of the product:\nDeep wrinkle correction\nVolume restoration\nLip enhancement\nLong-lasting results\nAreas: Nasolabial folds, marionette lines, glabella lines, lip augmentation and rhinoplasty",
     "brand": "Aessoa",
     "brand_source": "subcategory",
+    "quotable": true,
+    "core_tier": "attach"
+  },
+  {
+    "sku": "bdcon6284",
+    "product_name": "BD Microfine 30g x 8mm 0.5ml [10 Pack]",
+    "category": "CONSUMABLES",
+    "subcategory": "insulin-syringe",
+    "price_ex_vat": 4,
+    "availability": "in_stock",
+    "product_url": "https://blacksaesthetics.com/product-detail/16",
+    "local_image_path": "/images/bdcon6284.jpg",
+    "full_description": "BD Microfine 30g x 8mm 0.5ml [10 Pack]",
+    "brand": "BD",
+    "brand_source": "product_name",
+    "quotable": true,
+    "core_tier": "attach"
+  },
+  {
+    "sku": "precon2977",
+    "product_name": "Pre Injection Wipes [100 Pack]",
+    "category": "CONSUMABLES",
+    "subcategory": "clinical-hygiene",
+    "price_ex_vat": 4.5,
+    "availability": "in_stock",
+    "product_url": "https://blacksaesthetics.com/product-detail/81",
+    "local_image_path": "/images/precon2977.jpg",
+    "full_description": "Reliject Wipes Pre Injection Wipes [100 Pack]",
+    "brand": "Pre",
+    "brand_source": "product_name",
     "quotable": true,
     "core_tier": "attach"
   },
@@ -735,6 +795,21 @@
     "core_tier": "coverage"
   },
   {
+    "sku": "discon8905",
+    "product_name": "Dissolvidase Single 1500ui [1 Pack]",
+    "category": "OTHERS",
+    "subcategory": "dissolvadaise",
+    "price_ex_vat": 30,
+    "availability": "out_of_stock",
+    "product_url": "https://blacksaesthetics.com/product-detail/217",
+    "local_image_path": "/images/discon8905.jpg",
+    "full_description": "Dissolvidase Single 1500ui [1 Pack]",
+    "brand": "Dissolvidase",
+    "brand_source": "product_name",
+    "quotable": true,
+    "core_tier": "coverage"
+  },
+  {
     "sku": "ret50239",
     "product_name": "Retinol Expert Wrinkle Corrector [0.3%]",
     "category": "FACE CREAM",
@@ -775,6 +850,21 @@
     "local_image_path": "/images/staexo2813.jpg",
     "full_description": "Upgrade your skin with STARCEL NKC 20 Exosome, a premium product that offers the regenerative benefits of exosomes found naturally in the human body. Amazing benefits can be applied to the face, neck, and hands. \nControl abnormal skin cell reactions and balance\nWrinkle improvement, anti-inflammatory, wound healing, inflammation relief\nNKC : Exosome Particles 7,000,000,000\nRecommended to use:\nFor troubled skin\nTo improve irritation and itchiness and restore broken skin barrier for sensitive, acne, rough texture skin",
     "brand": "Starcel",
+    "brand_source": "product_name",
+    "quotable": true,
+    "core_tier": "coverage"
+  },
+  {
+    "sku": "bio72367",
+    "product_name": "Bio Collagen Real Deep Sheet Mask [1 Pack]",
+    "category": "FACE MASK",
+    "subcategory": null,
+    "price_ex_vat": 4.25,
+    "availability": "in_stock",
+    "product_url": "https://blacksaesthetics.com/product-detail/442",
+    "local_image_path": "/images/bio72367.jpg",
+    "full_description": "Meet BIODANCE’s Bio-Collagen Real Deep Mask – a TikTok favourite for a reason! Designed to deliver ultra-deep hydration and restore firmness, this potent hydrogel mask is packed with 34g of solidified, skin-boosting serum that melts into your skin as you wear it, transforming your complexion from dull to luminous in just one session. Infused with oligo-Hyaluronic Acid, this mask doesn’t just hydrate; it penetrates deep to plump, smooth, and lock in moisture, giving your skin a glow that lasts. As the mask works its magic, it turns transparent, revealing just how much your skin is absorbing. \nWith ultra-low molecular weight Fish Collagen that absorbs up to 42 times more efficiently than traditional collagen, it tackles fine lines and pore visibility for a fresh, even-toned look. 3 kinds of probiotics strengthen the skin’s natural barrier, helping to fight signs of ageing while boosting elasticity and radiance. Hypoallergenic and free from 19 harsh ingredients, it’s ideal for even the most sensitive skin types!\nIt’s Skin Cupid approved because…\n…single-use results showed this mask to increase skin moisture levels by 204%, boost skin elasticity by 34%, and decrease the appearance of pore size by 83%!\n*According to the brand’s self-disclosed test results.\nAt a glance:\nSuits all skin types, including sensitive skin\nDelivers fast-absorbing, deep-penetrating hydration\nStimulates collagen production to boost skin elasticity and minimise the appearance of fine lines and wrinkles\nFortifies the skin barrier for decreased sensitivity to external irritants",
+    "brand": "Bio",
     "brand_source": "product_name",
     "quotable": true,
     "core_tier": "coverage"
