@@ -7,6 +7,8 @@ const tierOrder = { hero: 0, core: 1, attach: 2, coverage: 3 }
 const availabilityLabel = { in_stock: 'In Stock', pre_order: 'Pre-Order', out_of_stock: 'Out of Stock' }
 const PRICE_CAPTURE_DATE = '29 July 2026'
 const QUOTE_STORAGE_KEY = 'blacks-rep-quote-v1'
+const UPDATE_PROTOCOL_VERSION = 2
+// Quote persistence live-update proof revision.
 
 function ProductImage({ product }) { return product.local_image_path ? <img className="product-image" src={product.local_image_path} alt={product.product_name} /> : <div className="image-empty">Image unavailable</div> }
 function Status({ availability }) { return availability ? <span className={`status ${availability}`}>{availabilityLabel[availability] || availability}</span> : <span className="status unknown">Availability unconfirmed</span> }
@@ -23,7 +25,7 @@ function App() {
  const entries = useMemo(() => Object.entries(quote).flatMap(([sku, qty]) => { const product = catalogueBySku.get(sku); return product ? [{ product, qty }] : [] }), [catalogueBySku, quote])
  const count = entries.reduce((n,x)=>n+x.qty,0), subtotal = entries.reduce((n,x)=>n+x.qty*x.product.price_ex_vat,0), vat = subtotal*.2
  const applyUpdate = () => { const waiting = registrationRef.current?.waiting; if (waiting) { setUpdateReady(false); waiting.postMessage({ type: 'SKIP_WAITING' }) } }
- const noteUpdate = registration => { if (Object.values(quoteRef.current).some(qty => qty > 0)) setUpdateReady(true); else registration.waiting?.postMessage({ type: 'SKIP_WAITING' }) }
+ const noteUpdate = registration => { registration.__quoteProtocol = UPDATE_PROTOCOL_VERSION; if (Object.values(quoteRef.current).some(qty => qty > 0)) setUpdateReady(true); else registration.waiting?.postMessage({ type: 'SKIP_WAITING' }) }
 
  useEffect(() => { fetch('/practitioner-catalogue.json').then(r => r.json()).then(setCatalogue) }, [])
  useEffect(() => { quoteRef.current = quote; try { localStorage.setItem(QUOTE_STORAGE_KEY, JSON.stringify(quote)) } catch {} }, [quote])
