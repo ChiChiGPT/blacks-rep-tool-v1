@@ -6,6 +6,7 @@ const money = value => new Intl.NumberFormat('en-GB', { style: 'currency', curre
 const tierOrder = { hero: 0, core: 1, attach: 2, coverage: 3 }
 const availabilityLabel = { in_stock: 'In Stock', pre_order: 'Pre-Order', out_of_stock: 'Out of Stock' }
 const PRICE_CAPTURE_DATE = '29 July 2026'
+const BUILD_MARKER = 'Build 2026-08-11 · freshness proof'
 
 function ProductImage({ product }) { return product.local_image_path ? <img className="product-image" src={product.local_image_path} alt={product.product_name} /> : <div className="image-empty">Image unavailable</div> }
 function Status({ availability }) { return availability ? <span className={`status ${availability}`}>{availabilityLabel[availability] || availability}</span> : <span className="status unknown">Availability unconfirmed</span> }
@@ -52,5 +53,5 @@ function App() {
  return <main><TopBar onHome={()=>setMode('home')} count={count} onQuote={()=>setMode('quote')} /><section className="home"><div className="home-head"><div><p className="eyebrow">Blacks Aesthetics</p><h1>Product tool</h1></div><button className="learn-link" onClick={openLearn}>Learn</button></div><input autoFocus className="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search product or brand" aria-label="Search product or brand"/><div className="entry-tabs"><button className={mode==='home'?'active':''} onClick={()=>{setMode('home');setQuery('')}}>Full Catalogue <span>{catalogue.length}</span></button><button className={mode==='core'?'active':''} onClick={openCore}>Core Products <span>{coreProducts.length || '…'}</span></button></div><div className="grid">{filtered.map(product=><button className="card" key={product.sku} onClick={()=>openProduct(product.sku)}><ProductImage product={product}/><span className="card-category">{product.category}</span><strong>{product.product_name}</strong><span>{product.brand || 'Brand pending'}</span><b>{money(product.price_ex_vat)} <small>ex-VAT</small></b></button>)}</div></section></main>
 }
 function TopBar({onHome,count,onQuote}) { return <header><button className="wordmark" onClick={onHome}>BLACKS <span>REP TOOL</span></button><button className="quote-button" onClick={onQuote}>Quote <b>{count}</b></button></header> }
-function QuoteFooter() { return <footer>Prices ex-VAT, correct as at {PRICE_CAPTURE_DATE}.<br/>Subject to confirmation.</footer> }
+function QuoteFooter() { return <footer>Prices ex-VAT, correct as at {PRICE_CAPTURE_DATE}.<br/>Subject to confirmation.<br/><small>{BUILD_MARKER}</small></footer> }
 createRoot(document.getElementById('root')).render(<App />)
